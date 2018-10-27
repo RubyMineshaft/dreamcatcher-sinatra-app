@@ -8,8 +8,27 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    redirect to "/home" if logged_in? 
+    redirect to "/dreams" if logged_in?
     erb :index
+  end
+
+  get "/signup" do
+    @user = User.new
+
+    if logged_in?
+      redirect to "/dreams"
+    end
+    erb :signup
+  end
+
+  post "/signup" do
+    @user = User.new(params[:user])
+
+    if @user.save
+      redirect to "/dreams"
+    else
+      erb :signup
+    end
   end
 
   helpers do
@@ -20,7 +39,6 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find_by_id(session[:user_id])
     end
-
   end
 
 end

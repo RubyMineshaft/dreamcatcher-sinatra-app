@@ -3,10 +3,11 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :categories, through: :dreams
   has_secure_password
-  validates :name, presence: true
-  validates :email, presence: true
+  validates :username, uniqueness: true
+  validates :email, presence: true,
+                    uniqueness: true
   validates :password,  :presence => true,
                         :confirmation => true,
                         :length => {:minimum => 8}
-                        
+
 end

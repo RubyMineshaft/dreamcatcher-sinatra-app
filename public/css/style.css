@@ -56,3 +56,7 @@ footer a {
   color: #3d5469;
   text-decoration: underline;
 }
+
+.pad {
+  padding: 20px;
+}
