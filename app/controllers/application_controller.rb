@@ -21,6 +21,11 @@ class ApplicationController < Sinatra::Base
     erb :signup
   end
 
+  get "/login" do
+    redirect to "/dreams" if logged_in?
+    erb :login 
+  end
+
   post "/signup" do
     @user = User.new(params[:user])
 
