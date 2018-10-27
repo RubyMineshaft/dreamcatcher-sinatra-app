@@ -22,12 +22,16 @@ A comment belongs to a user  and a user can have many comments
 - title
 - content
 - timestamps
+- user_id
+- private?
 
 ### Category
 - name
 
 ### Comment
 - content
+- user_id
+- dream_id
 - timestamps
 
 ### DreamCategory
