@@ -25,6 +25,7 @@ class ApplicationController < Sinatra::Base
     @user = User.new(params[:user])
 
     if @user.save
+      session[:user_id] = @user.id
       redirect to "/dreams"
     else
       erb :signup
