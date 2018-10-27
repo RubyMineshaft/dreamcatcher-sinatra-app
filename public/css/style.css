@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans+Condensed:300');
+
+
+body {
+  background: url("/images/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.white-text {
+  color: white;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+h1.normal {
+  padding-top: 10px;
+  font-size: 4em;
+  text-align: center;
+}
+
+.center-block {
+  display: block;
+  margin: auto;
+}
+
+.middle {
+  margin-top: 18%;
+}
+
+a.round {
+  border-radius: 24px;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 1.2em;
+  margin: 10px auto;
+  padding: 5px 0;
+
+}
