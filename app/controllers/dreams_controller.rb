@@ -9,6 +9,15 @@ class DreamsController < ApplicationController
     end
   end
 
+  get "/dreams/new" do
+    if logged_in?
+      erb :"dreams/new"
+    else
+      flash[:error] = "You must be logged in to add a new dream."
+      redirect "/"
+    end 
+  end
+
   get "/dreams/:id" do
     @dream = Dream.find_by_id(params[:id])
     if logged_in?
@@ -17,5 +26,8 @@ class DreamsController < ApplicationController
       flash[:error] = "You must log in or sign up to view that page."
       redirect "/"
     end
-  end 
+  end
+
+
+
 end
