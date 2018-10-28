@@ -23,28 +23,19 @@ class DreamsController < ApplicationController
     dream.save
     current_user.dreams << dream
 
-    if !params[:new_category][:name].empty?
-      Category.create(params[:new_category]).dreams << dream
-    end
+    Category.create(params[:new_category]).dreams << dream if !params[:new_category][:name].empty?
+
     redirect "/dreams/#{dream.id}"
   end
 
 
   get "/dreams/:id" do
     @dream = Dream.find_by_id(params[:id])
-    if logged_in?
-      if !@dream.public? || @dream.user == current_user
-        erb :"dreams/show"
-      else
-        flash[:error] = "This dream is marked as private. Only the owner can view it."
-        redirect "/dreams"
-      end 
+    if logged_in? && !@dream.public? || @dream.user == current_user
+      erb :show
     else
-      flash[:error] = "You must log in or sign up to view that page."
-      redirect "/"
+      flash[:error] = "This dream is marked as private. Only the owner can view it."
+      redirect "/dreams"
     end
   end
-
-
-
 end
