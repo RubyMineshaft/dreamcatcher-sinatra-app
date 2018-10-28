@@ -1,4 +1,4 @@
-class DreamsController < Sinatra::Base
+class DreamsController < ApplicationController
 
   get "/dreams" do
     if logged_in?

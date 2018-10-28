@@ -1,0 +1,21 @@
+<div class="container">
+
+  <% Dream.all.each do |dream| %>
+    <div class="card">
+      <div class="card-header">Dream shared by <%= dream.user.username %> on <%= dream.created_at.utc.strftime("%b %d, %Y, at %l:%M%P") %></div>
+      <div class="card-body">
+        <h5 class="card-title"><%= dream.title %></h5>
+        <p class="card-text"><%= dream.content.split[0..30].join(" ") %>... </p>
+        <a href="/dreams/<%= dream.id %>" class="btn btn-primary">View Dream</a>
+      </div>
+      <div class="card-footer text-muted">
+        <% cats = dream.categories.collect { |cat| cat.name } %>
+        <span class="categories">Categories: <%= cats.join(", ") %></span><span class="comments"><%= dream.comments.count %> comments</span>
+      </div>
+    </div>
+    <% end %>
+
+
+
+
+</div>
