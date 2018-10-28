@@ -32,7 +32,7 @@ class DreamsController < ApplicationController
   get "/dreams/:id" do
     @dream = Dream.find_by_id(params[:id])
     if logged_in? && !@dream.private || @dream.user == current_user
-      erb :show
+      erb :"dreams/show"
     else
       flash[:error] = "This dream is marked as private. Only the owner can view it."
       redirect "/dreams"
