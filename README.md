@@ -1,2 +1,3 @@
-# dream-sinatra-app
-Simple Sinatra dream journal CRUD app 
+# DreamCatcher Sinatra App
+Sinatra dream journal CRUD app 
+more info soon.
