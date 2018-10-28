@@ -22,7 +22,7 @@
 
       <% if flash.has?(:error) %>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 error">
             <div class="error">
               <%= flash[:error] %>
             </div>
@@ -32,7 +32,7 @@
 
       <% if flash.has?(:success) %>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 success">
             <div class="success">
               <%= flash[:success] %>
             </div>

@@ -64,3 +64,13 @@ footer a {
 div[id^='dream_'].card {
   margin: 15px;
 }
+
+.error {
+  background: rgb(211,73,85);
+  padding: 2.5px;
+}
+
+.success {
+  background: rgb(1,184,124);
+  padding: 2.5px;
+}
