@@ -60,3 +60,7 @@ footer a {
 .pad {
   padding: 20px;
 }
+
+div[id^='dream_'].card {
+  margin: 15px;
+}

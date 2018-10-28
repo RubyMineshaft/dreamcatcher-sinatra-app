@@ -1,7 +1,7 @@
 <div class="container">
 
   <% Dream.all.each do |dream| %>
-    <div class="card">
+    <div class="card" id="dream_<%= dream.id %>">
       <div class="card-header">Dream shared by <%= dream.user.username %> on <%= dream.created_at.utc.strftime("%b %d, %Y, at %l:%M%P") %></div>
       <div class="card-body">
         <h5 class="card-title"><%= dream.title %></h5>
