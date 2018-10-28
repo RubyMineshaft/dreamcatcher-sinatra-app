@@ -2,7 +2,7 @@
 
   <% Dream.all.each do |dream| %>
     <div class="card" id="dream_<%= dream.id %>">
-      <div class="card-header">Dream shared by <%= dream.user.username %> on <%= dream.created_at.utc.strftime("%b %d, %Y, at %l:%M%P") %></div>
+      <div class="card-header">Dream shared by <%= dream.user.username %> on <%= dream.created_at.strftime("%A, %b %d, %Y, at %l:%M%P %Z") %></div>
       <div class="card-body">
         <h5 class="card-title"><%= dream.title %></h5>
         <p class="card-text"><%= dream.content.split[0..30].join(" ") %>... </p>
