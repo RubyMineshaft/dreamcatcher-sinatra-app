@@ -74,3 +74,7 @@ div[id^='dream_'].card {
   background: rgb(1,184,124);
   padding: 2.5px;
 }
+
+span.comments {
+  float: right;
+}
