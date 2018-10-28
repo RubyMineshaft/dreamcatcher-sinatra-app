@@ -20,6 +20,26 @@
         </div>
       <% end %>
 
+      <% if flash.has?(:error) %>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="error">
+              <%= flash[:error] %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <% if flash.has?(:success) %>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="success">
+              <%= flash[:success] %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
       <%= yield %>
 
       <footer class="footer">
