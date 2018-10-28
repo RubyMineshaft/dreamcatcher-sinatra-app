@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, ENV.fetch("SESSION_SECRET")
-    use Rack::Flash 
+    use Rack::Flash
   end
 
   get "/" do
@@ -42,6 +42,7 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
+      redirect "/dreams"
     else
       flash[:notice] = "There was a problem logging you in.  Please check email address and password."
       redirect "/login"
