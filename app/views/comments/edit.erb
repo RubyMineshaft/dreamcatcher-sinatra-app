@@ -1,0 +1,8 @@
+<div class="col-sm-8 bg-light text-dark">
+  <h5>Edit comment</h5>
+  <form action="/comment/<%= @comment.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input class="form-control" type="text" name="comment[content]" value="<%= @comment.content %>">
+    <input type="submit" value="Save">
+  </form>
+</div>
