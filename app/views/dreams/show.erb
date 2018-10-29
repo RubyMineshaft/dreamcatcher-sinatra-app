@@ -28,8 +28,9 @@
         <form action="/comments" method="post">
           <h5><label for="comment_input">Add a comment:</label></h5>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Enter your comment" aria-label="Comment" aria-describedby="button-addon2">
+            <input type="text" class="form-control" name="comment[content]" placeholder="Enter your comment" aria-label="Comment" aria-describedby="button-addon2">
           <div class="input-group-append">
+            <input type="hidden" name="comment[dream_id]" value="<%= @dream.id %>">
             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Save Comment</button>
           </div>
         </div>
