@@ -59,4 +59,12 @@ class DreamsController < ApplicationController
     redirect "/dreams/#{@dream.id}"
   end
 
+  delete "/dreams/:id" do
+    @dream = Dream.find_by_id(params[:id])
+    @dream.destroy
+
+    flash[:success] = "Dream deleted."
+    redirect "/dreams"
+  end
+
 end
