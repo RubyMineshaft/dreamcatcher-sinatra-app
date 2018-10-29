@@ -1,0 +1,63 @@
+<div class="container bg-light text-dark pad">
+
+    <div class="col-sm-12">
+      <div class="card" id="dream_<%= @dream.id %>">
+        <div class="card-header">Dream shared by <%= @dream.user.username %> on <%= @dream.created_at.strftime("%A, %b %d, %Y, at %l:%M%P %Z") %></div>
+        <div class="card-body">
+          <h5 class="card-title"><%= @dream.title %></h5>
+          <p class="card-text"><%= @dream.content %> </p>
+
+          <% if @dream.user == current_user %>
+            <a class="btn btn-primary" href="/dreams/<%= @dream.id %>/edit" role="button">Edit</a>
+            <form class="delete-button" action="/dreams/<%= @dream.id %>" method="post">
+              <input type="hidden" name="_method" value="delete">
+
+              <input class="btn btn-primary" type="submit" href="/dreams/<%= @dream.id %>" role="button" value="Delete">
+            </form>
+          <% end %>
+
+        </div>
+        <div class="card-footer text-muted">
+          <% cats = @dream.categories.collect { |cat| cat.name } %>
+          <span class="categories">Categories: <%= cats.join(", ") %></span><span class="comments"><%= @dream.comments.count %> comments</span>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <form action="/comments" method="post">
+          <h5><label for="comment_input">Add a comment:</label></h5>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter your comment" aria-label="Comment" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Save Comment</button>
+          </div>
+        </div>
+        <br>
+
+      </div>
+
+      <h5>Comments:</h5>
+      <% if @dream.comments.empty? %>
+        <h6>No comments to display.</h6>
+      <% else %>
+        <% @dream.comments.each do |comment| %>
+          <div class="card">
+            <div class="card-header">
+              <span><%= comment.user.username %></span>
+              <span id="comment-date" class="date"><%= comment.created_at %></span>
+            </div>
+            <p class="card-text pad"><%= comment.content %></p>
+            <% if comment.user == current_user %>
+            <a href="/comments/<%= comment.id %>/edit">Edit Comment</a>
+            <form action="/comments/<%= comment.id %>">
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" value="Delete">
+            </form>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+</div>
