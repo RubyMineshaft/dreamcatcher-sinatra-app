@@ -48,4 +48,15 @@ class DreamsController < ApplicationController
       redirect "/dreams"
     end
   end
+
+  patch "/dreams/:id" do
+    @dream = Dream.find_by_id(params[:id])
+    @dream.update(params[:dream])
+    @dream.save
+
+    Category.create(params[:new_category]).dreams << @dream if !params[:new_category][:name].empty?
+    flash[:success] = "Dream successfully updated."
+    redirect "/dreams/#{@dream.id}"
+  end
+
 end

@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-9 bg-light text-dark pad center-block">
+    <h3>Edit Dream</h3>
+    <form action="/dreams/<%= @dream.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+
+
+      <select name="dream[private]" class="form-control">
+        <option value="false">This dream is public.</option>
+        <option value="true"<%= "selected" if @dream.private %>>This dream is private.</option>
+      </select>
+
+      <br>
+
+      <div class="form-group">
+        <label for="dream_title">Dream Title</label>
+        <input type="text" class="form-control" name="dream[title]" id="dream_title" placeholder="Title" value="<%= @dream.title %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dream_content">Dream Details</label>
+        <textarea class="form-control" id="dream_content" name="dream[content]" rows="4" required><%= @dream.content %></textarea>
+      </div>
+
+      <label> Select Categories </label> <br>
+      <% Category.all.each do |category| %>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" Name="dream[category_ids][]" id="category_<%= category.id %>" value="<%= category.id %>" <%= "checked" if @dream.categories.include?(category) %>>
+          <label class="form-check-label" for="category_<%= category.id %>"><%= category.name %></label>
+        </div>
+      <% end %>
+
+      <br><br>
+
+      <div class="form-group">
+        <label for="new_category">And/Or Enter New Category</label>
+        <input type="text" class="form-control" name="new_category[name]" id="new_category" placeholder="Category">
+      </div>
+
+      <button type="submit" class="btn btn-primary center-block">Save</button>
+    </form>
+  </div>
+</div>
