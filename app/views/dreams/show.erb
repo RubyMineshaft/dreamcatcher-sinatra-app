@@ -8,10 +8,10 @@
           <p class="card-text"><%= @dream.content %> </p>
 
           <% if @dream.user == current_user %>
-            <a class="btn btn-primary" href="/dreams/<%= @dream.id %>/edit" role="button">Edit</a>
+
             <form class="delete-button" action="/dreams/<%= @dream.id %>" method="post">
               <input type="hidden" name="_method" value="delete">
-
+              <a class="btn btn-primary" href="/dreams/<%= @dream.id %>/edit" role="button">Edit</a>
               <input class="btn btn-primary" type="submit" href="/dreams/<%= @dream.id %>" role="button" value="Delete">
             </form>
           <% end %>
