@@ -20,4 +20,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  patch "/comments/:id" do
+    @comment = Comment.find_by_id(params[:id])
+    @comment.content = params[:comment][:content]
+    @comment.save
+
+    redirect "/dreams/#{@comment.dream.id}"
+  end
+
 end
