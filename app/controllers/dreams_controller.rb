@@ -38,4 +38,14 @@ class DreamsController < ApplicationController
       redirect "/dreams"
     end
   end
+
+  get "/dreams/:id/edit" do
+    @dream = Dream.find_by_id(params[:id])
+    if @dream.user == current_user
+      erb :"dreams/edit"
+    else
+      flash[:error] = "Only the owner can edit a dream."
+      redirect "/dreams"
+    end
+  end
 end
