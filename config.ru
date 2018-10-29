@@ -7,3 +7,4 @@ end
 use Rack::MethodOverride
 run ApplicationController
 use DreamsController
+use CommentsController
