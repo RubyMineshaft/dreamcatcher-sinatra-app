@@ -1,0 +1,23 @@
+<div class="container bg-light text-dark">
+  <h3><%= @user.username %></h3>
+  <p><%= @user.city %></p>
+  <h5> About: </h5>
+  <p><%= @user.bio %></p>
+
+  <% if @user == current_user %>
+    <p><a href="/user/<%= @user.id %>/edit">Update profile information</a></p>
+  <% end %>
+
+  <h4> Dreams </h4>
+
+  <ul>
+    <% @user.dreams.each do |dream| %>
+      <% if !dream.private || dream.user == current_user %>
+       <li> <h5><a href="/dreams/<%= dream.id %>"><%= dream.title %><a></h5>
+          <p><%= dream.content %></p>
+        </li>
+      <% end %>
+    <% end %>
+
+
+</div>
