@@ -1,5 +1,13 @@
 class CommentsController < ApplicationController
 
+  delete "/comments/:id" do
+    comment = Comment.find_by_id(params[:id])
+    dream = comment.dream
+    comment.destroy
+    flash[:success] = "Your comment has been successfully deleted."
+    redirect "/dreams/#{dream.id}"
+  end
+
   post "/comments" do
     @comment = Comment.new(params[:comment])
     @comment.save
@@ -19,6 +27,8 @@ class CommentsController < ApplicationController
       redirect "/dreams/#{@comment.dream.id}"
     end
   end
+
+
 
   patch "/comments/:id" do
     @comment = Comment.find_by_id(params[:id])

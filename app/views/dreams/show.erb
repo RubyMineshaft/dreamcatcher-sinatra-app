@@ -29,11 +29,13 @@
           <h5><label for="comment_input">Add a comment:</label></h5>
           <div class="input-group mb-3">
             <input type="text" class="form-control" name="comment[content]" placeholder="Enter your comment" aria-label="Comment" aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <input type="hidden" name="comment[dream_id]" value="<%= @dream.id %>">
-            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Save Comment</button>
-          </div>
+            <div class="input-group-append">
+              <input type="hidden" name="comment[dream_id]" value="<%= @dream.id %>">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Save Comment</button>
+            </div>
+
         </div>
+        </form>
         <br>
 
       </div>
@@ -50,10 +52,11 @@
             </div>
             <p class="card-text pad"><%= comment.content %></p>
             <% if comment.user == current_user %>
-            <a href="/comments/<%= comment.id %>/edit">Edit Comment</a>
-            <form action="/comments/<%= comment.id %>">
+
+            <form class="delete-button" action="/comments/<%= comment.id %>" method="post">
               <input type="hidden" name="_method" value="delete">
-              <input type="submit" value="Delete">
+              <a class="btn btn-primary" href="/comments/<%= comment.id %>/edit" role="button">Edit</a>
+              <input class="btn btn-primary" type="submit" href="/comments/<%= comment.id %>" role="button" value="Delete">
             </form>
             <% end %>
           </div>
