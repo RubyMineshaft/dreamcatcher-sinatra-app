@@ -6,8 +6,8 @@
 
 
       <select name="dream[private]" class="form-control">
-        <option value="false">This dream is public.</option>
-        <option value="true"<%= "selected" if @dream.private %>>This dream is private.</option>
+        <option value="false" <%= "selected" if !@dream.private %>>This dream is public.</option>
+        <option value="true" <%= "selected" if @dream.private %>>This dream is private.</option>
       </select>
 
       <br>

@@ -8,7 +8,7 @@
         <%= @dream.created_at.strftime("%A, %b %d, %Y, at %l:%M%P %Z") %></div>
       <div class="card-body">
         <h5 class="card-title"><%= @dream.title %></h5>
-        <p class="card-text"><%= @dream.content %>
+        <p class="card-text dream-content"><%= @dream.content %>
         </p>
 
         <% if @dream.user == current_user %>
