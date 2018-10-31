@@ -7,8 +7,7 @@
     <% else %>
       <% @category.dreams.uniq.each do |dream| %>
         <% if !dream.private %>
-          <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a>
-          <p><% dream.content %></p></li>
+          <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a> - posted by <a href="/users/<%= dream.user.id %>"><%= dream.user.username %></a>, <%= dream.created_at.strftime("%m/%d/%Y") %></li>
         <% end %>
       <% end %>
     <% end %>
