@@ -49,6 +49,11 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  get "/logout" do
+    session.clear
+    redirect "/"
+  end
+
   helpers do
     def logged_in?
       !!session[:user_id]

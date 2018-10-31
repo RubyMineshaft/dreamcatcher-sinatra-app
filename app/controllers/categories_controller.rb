@@ -6,7 +6,15 @@ class CategoriesController < ApplicationController
       erb :"categories/show"
     else
       redirect "/"
-    end 
+    end
+  end
+
+  get "/categories" do
+    if logged_in?
+      erb :"categories/index"
+    else
+      redirect "/"
+    end
   end
 
 end

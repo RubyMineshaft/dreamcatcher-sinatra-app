@@ -1,0 +1,11 @@
+<div class="container bg-light text-dark">
+  <h1>Categories</h1>
+
+  <ul>
+    <% Category.all.each do |category| %>
+      <li><a href="/categories/<%= category.id %>"><%= category.name %></a> - <%= category.dreams.uniq.count %> Dreams</li>
+    <% end %>
+  </ul>
+
+
+</div>
