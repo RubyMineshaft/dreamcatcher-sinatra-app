@@ -20,7 +20,9 @@ class UsersController < ApplicationController
 
   patch "/users/:id" do
     @user = User.find_by(id: params[:id])
-    @user.update(params[:user])
+    @user.username = params[:user][:username]
+    @user.city = params[:user][:city]
+    @user.bio = params[:user][:bio]
     if @user.save
       flash[:success] = "Profile updated."
       redirect "/users/#{@user.id}"

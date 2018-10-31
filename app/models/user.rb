@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
                     uniqueness: true
   validates :password,  :presence => true,
                         :confirmation => true,
-                        :length => {:minimum => 8}
+                        :length => {:minimum => 8},
+                        :on => :create
 
 end
