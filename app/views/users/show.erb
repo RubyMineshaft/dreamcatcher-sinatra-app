@@ -28,13 +28,16 @@
   <h4> Dreams </h4>
 
   <ul>
+    <% dream_count = 0 %>
     <% @user.dreams.each do |dream| %>
       <% if !dream.private || dream.user == current_user %>
+        <% dream_count += 1 %>
        <li> <h5><a href="/dreams/<%= dream.id %>"><%= dream.title %><a></h5>
           <p><%= dream.content %></p>
         </li>
       <% end %>
     <% end %>
+    <%= "<li>This user has no dreams to display. </li>" if dream_count == 0 %>
 
 
 </div>
