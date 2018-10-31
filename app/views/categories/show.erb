@@ -2,10 +2,14 @@
   <h1><%= @category.name %></h1>
 
   <ul>
-    <% @category.dreams.each do |dream| %>
-      <% if !dream.private %>
-        <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a>
-        <p><% dream.content %></p></li>
+    <% if @category.dreams.empty? %>
+      <li> No Dreams in this category.  Why not <a href="/dreams/new">share a dream</a>?</li>
+    <% else %>
+      <% @category.dreams.each do |dream| %>
+        <% if !dream.private %>
+          <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a>
+          <p><% dream.content %></p></li>
+        <% end %>
       <% end %>
     <% end %>
   </ul>
