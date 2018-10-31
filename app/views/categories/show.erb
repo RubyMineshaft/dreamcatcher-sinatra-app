@@ -5,7 +5,7 @@
     <% if @category.dreams.empty? %>
       <li> No Dreams in this category.  Why not <a href="/dreams/new">share a dream</a>?</li>
     <% else %>
-      <% @category.dreams.each do |dream| %>
+      <% @category.dreams.uniq.each do |dream| %>
         <% if !dream.private %>
           <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a>
           <p><% dream.content %></p></li>
