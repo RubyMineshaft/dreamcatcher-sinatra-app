@@ -3,6 +3,23 @@
   <p><%= @user.city %></p>
   <h5> About: </h5>
   <p><%= @user.bio %></p>
+  <h5><%= @user.username %>'s Categories:</h5>
+  <% categories = [] %>
+  <% @user.dreams.each do |dream| %>
+    <% if !dream.private || dream.user == current_user %>
+      <% categories << dream.categories %>
+    <% end %>
+  <% end %>
+  <ul>
+    <% categories = categories.flatten %>
+    <% if categories.empty? %>
+      <li>No categories to display.</li>
+    <% else %>
+      <% categories.uniq.each do |category| %>
+        <li><%= category.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
 
   <% if @user == current_user %>
     <p><a href="/users/<%= @user.id %>/edit">Update profile information</a></p>
