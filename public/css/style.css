@@ -9,6 +9,10 @@ body {
   background-size: cover;
 }
 
+.main-area {
+  margin-top: 20px;
+}
+
 .normal {
   font-weight: normal;
 }
@@ -93,4 +97,12 @@ div p.dream-content {
 
 span.date {
   float: right;
+}
+
+.bg-nav {
+  background-color: #0e233d;
+}
+
+nav .white-text {
+  font-size: 1.5em;
 }
