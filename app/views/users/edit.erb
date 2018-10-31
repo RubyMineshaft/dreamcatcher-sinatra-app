@@ -1,0 +1,13 @@
+<div class="container bg-light text-dark">
+  <h1>Update your information</h1>
+  <form action="/users/<%= @user.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="username">Username</label><br>
+    <input type="text" name="user[username]" value="<%= @user.username %>"><br>
+    <label for="city">City</label><br>
+    <input type="text" name="user[city]" value="<%= @user.city %>"><br>
+    <label for="bio">Bio</label><br>
+    <input type="text" name="user[bio]" value="<%= @user.bio %>"><br>
+    <input type="submit" value="Save">
+  </form>
+</div>
