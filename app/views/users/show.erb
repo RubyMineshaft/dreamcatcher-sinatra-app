@@ -16,7 +16,7 @@
       <li>No categories to display.</li>
     <% else %>
       <% categories.uniq.each do |category| %>
-        <li><%= category.name %></li>
+        <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
       <% end %>
     <% end %>
   </ul>
