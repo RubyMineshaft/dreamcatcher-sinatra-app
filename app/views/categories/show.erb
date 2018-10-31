@@ -1,0 +1,9 @@
+<h1><%= @category.name %></h1>
+
+<ul>
+  <% @category.dreams.each do |dream| %>
+    <% if !dream.private %>
+      <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a>
+      <p><% dream.content %></p></li>
+    <% end %>
+</ul>

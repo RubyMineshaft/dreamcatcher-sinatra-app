@@ -8,4 +8,5 @@ use Rack::MethodOverride
 use CommentsController
 use DreamsController
 use UsersController
+use CategoriesController
 run ApplicationController
