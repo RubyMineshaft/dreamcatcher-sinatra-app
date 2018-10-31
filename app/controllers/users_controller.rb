@@ -9,5 +9,14 @@ class UsersController < ApplicationController
     end
   end
 
+  get "/users/:id/edit" do
+    @user = User.find_by(id: params[:id])
+    if logged_in? && @user == current_user
+      erb :"users/edit"
+    else
+      redirect "/"
+    end
+  end
+
 
 end
