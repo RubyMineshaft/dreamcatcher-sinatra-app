@@ -52,7 +52,7 @@
           <% @dream.comments.each do |comment| %>
             <div class="card">
               <div class="card-header">
-                <span><%= comment.user.username %></span>
+                <span><a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a></span>
                 <span id="comment-date" class="date"><%= comment.created_at %></span>
               </div>
               <p class="card-text pad"><%= comment.content %></p>
