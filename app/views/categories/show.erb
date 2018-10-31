@@ -1,10 +1,12 @@
-<h1><%= @category.name %></h1>
+<div class="bg-light text-dark">
+  <h1><%= @category.name %></h1>
 
-<ul>
-  <% @category.dreams.each do |dream| %>
-    <% if !dream.private %>
-      <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a>
-      <p><% dream.content %></p></li>
+  <ul>
+    <% @category.dreams.each do |dream| %>
+      <% if !dream.private %>
+        <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a>
+        <p><% dream.content %></p></li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>
