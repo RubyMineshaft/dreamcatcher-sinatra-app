@@ -1,5 +1,14 @@
 <div class="container bg-light text-dark">
   <h1>Update your information</h1>
+
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li class="error"><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <form action="/users/<%= @user.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
     <label for="username">Username</label><br>

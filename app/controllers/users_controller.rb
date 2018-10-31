@@ -18,5 +18,16 @@ class UsersController < ApplicationController
     end
   end
 
+  patch "/users/:id" do
+    @user = User.find_by(id: params[:id])
+    @user.update(params[:user])
+    if @user.save
+      flash[:success] = "Profile updated."
+      redirect "/users/#{@user.id}"
+    else
+      erb :"users/edit"
+    end
+  end
+
 
 end
