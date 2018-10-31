@@ -90,3 +90,7 @@ span#comment-date {
 div p.dream-content {
   white-space: pre-wrap;
 }
+
+span.date {
+  float: right;
+}
