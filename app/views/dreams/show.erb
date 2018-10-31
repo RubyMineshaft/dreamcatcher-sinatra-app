@@ -3,7 +3,7 @@
   <div class="col-sm-12">
     <div class="card" id="dream_<%= @dream.id %>">
       <div class="card-header">Dream shared by
-        <%= @dream.user.username %>
+        <a href="/users/<%= @dream.user.id %>"><%= @dream.user.username %></a>
         on
         <%= @dream.created_at.strftime("%A, %b %d, %Y, at %l:%M%P %Z") %></div>
       <div class="card-body">
