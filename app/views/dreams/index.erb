@@ -9,7 +9,7 @@
           <a href="/dreams/<%= dream.id %>" class="btn btn-primary">View Dream</a>
         </div>
         <div class="card-footer text-muted">
-          <% cats = dream.categories.collect { |cat| cat.name } %>
+          <% cats = dream.categories.collect { |cat| "<a href=\"/categories/#{cat.id}\">#{cat.name}</a>" } %>
           <span class="categories">Categories: <%= cats.join(", ") %></span><span class="comments"><%= dream.comments.count %> comments</span>
         </div>
       </div>
