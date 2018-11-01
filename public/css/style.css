@@ -101,7 +101,7 @@ span.comments {
   float: right;
 }
 
-form.delete-button {
+#comment-section form.delete-button {
     margin-left: 15px;
     margin-top: -20px;
     margin-bottom: 10px;
