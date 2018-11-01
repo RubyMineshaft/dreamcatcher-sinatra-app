@@ -13,7 +13,7 @@
   <body>
 
       <% if logged_in? %>
-      <nav class="navbar navbar-expand-md navbar-dark bg-nav sticky-top">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-nav sticky-top">
 
 
 
@@ -24,7 +24,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="nav-links">
+        <div class="collapse navbar-collapse justify-content-end" id="nav-links">
           <ul class="navbar-nav">
             <li class="nav-item">
               <a href="/dreams" class="nav-link">Dreams</a>
@@ -32,21 +32,26 @@
             <li class="nav-item">
               <a href="/categories" class="nav-link">Categories</a>
             </li>
-            <li class="nav-item">
-              <a href="/users/<%= current_user.id %>" class="nav-link">My Dreams</a>
-            </li>
-            <li class="nav-item">
-              <a href="/dreams/new" class="nav-link">New Dream</a>
-            </li>
-            <li class="nav-item">
-              <a href="/logout" class="nav-link">Log Out</a>
+
+            <li class="nav-item dropdown">
+              <a href="#" data-toggle="dropdown" data-target="dropdown-personal" class="nav-link dropdown-toggle">
+                <%= current_user.username %>
+                <span class="caret"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right bg-nav" aria-labelledby="dropdown-personal">
+                <a href="/dreams/new" class="dropdown-item">New Dream</a>
+                <div class="dropdown-divider"></div>
+                <a href="/users/<%= current_user.id %>" class="dropdown-item">My Dreams</a>
+                <a href="/logout" class="dropdown-item">Log Out</a>
+              </div>
             </li>
           </ul>
         </div>
       </nav>
       <% end %>
 
-
+    <div class="container main-area">
 
       <% if flash.has?(:error) %>
         <div class="row">
@@ -68,7 +73,7 @@
         </div>
       <% end %>
 
-    <div class="container main-area">
+
 
       <%= yield %>
 

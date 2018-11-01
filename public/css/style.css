@@ -13,6 +13,10 @@ body {
   margin-top: 20px;
 }
 
+.dropdown-item {
+  color: #87909c;
+}
+
 .normal {
   font-weight: normal;
 }
