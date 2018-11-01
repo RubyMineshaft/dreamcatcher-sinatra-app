@@ -6,8 +6,9 @@ DreamCatcher is a simple dream journal Sinatra app that allows users to create a
 
 Fork and clone this repository.
 
-Migrate database with `rake db:migrate`.
-Optionally, seed database with `rake db:seed`.
+Run `$ bundle install` to install dependencies.
+Migrate database with `$ rake db:migrate`.
+Optionally, seed database with `$ rake db:seed`.
 
 ## Usage
 
