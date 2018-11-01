@@ -16,7 +16,7 @@
           <form class="delete-button" action="/dreams/<%= @dream.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
             <a class="btn btn-primary" href="/dreams/<%= @dream.id %>/edit" role="button">Edit</a>
-            <input class="btn btn-primary" type="submit" href="/dreams/<%= @dream.id %>" role="button" value="Delete">
+            <input class="btn btn-danger" type="submit" href="/dreams/<%= @dream.id %>" role="button" value="Delete">
           </form>
         <% end %>
 
@@ -60,7 +60,7 @@
                 <form class="delete-button" action="/comments/<%= comment.id %>" method="post">
                   <input type="hidden" name="_method" value="delete">
                   <a class="btn btn-primary" href="/comments/<%= comment.id %>/edit" role="button">Edit</a>
-                  <input class="btn btn-primary" type="submit" href="/comments/<%= comment.id %>" role="button" value="Delete">
+                  <input class="btn btn-danger" type="submit" href="/comments/<%= comment.id %>" role="button" value="Delete">
                 </form>
               <% end %>
             </div>
