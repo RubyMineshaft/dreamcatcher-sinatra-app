@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  adapter: sqlite3
+  database: "db/development.sqlite"
+
+test:
+  <<: *default
+  database: "test_database_name"
+
+production:
+  <<: *default
+  database: "production_database_name"
