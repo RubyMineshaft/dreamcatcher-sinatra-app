@@ -1,6 +1,9 @@
-<div class="container bg-light text-dark">
-  <h1><%= @user.username %></h1>
-  <p><%= @user.city %></p>
+<div class="container bg-light text-dark pad">
+  <div class="text-center">
+    <h1 class="username"><%= @user.username %></h1>
+    <small><%= @user.city %></small>
+  </div>
+
   <h5> About: </h5>
   <p><%= @user.bio %></p>
   <h5><%= @user.username %>'s Categories:</h5>
@@ -25,16 +28,26 @@
     <p><a class="btn btn-outline-dark" role="button" href="/users/<%= @user.id %>/edit">Update profile information</a></p>
   <% end %>
 
-  <h4> Dreams </h4>
+  <h4> <%= @user.username %>'s Dreams </h4>
 
-  <ul>
+
     <% dream_count = 0 %>
     <% @user.dreams.each do |dream| %>
       <% if !dream.private || dream.user == current_user %>
         <% dream_count += 1 %>
-       <li> <h5><a href="/dreams/<%= dream.id %>"><%= dream.title %><a></h5>
-          <p><%= dream.content %></p>
-        </li>
+
+        <div class="card" id="dream_<%= dream.id %>">
+          <a href="/dreams/<%= dream.id %>"><div class="card-header clearfix"><span class="date"><%= dream.created_at.strftime("%A, %b %d, %Y, %l:%M%P %Z") %></span></div></a>
+          <div class="card-body">
+            <h5 class="card-title"><%= dream.title %></h5>
+            <p class="card-text"><%= dream.content %></p>
+          </div>
+          <div class="card-footer text-muted">
+            <% cats = dream.categories.collect { |cat| "<a href=\"/categories/#{cat.id}\">#{cat.name}</a>" } %>
+            <span class="categories">Categories: <%= cats.join(", ") %></span><span class="comments"><a href="/dreams/<%= dream.id %>#comment-section"><%= dream.comments.count %> comments</span>
+          </div>
+        </div>
+
       <% end %>
     <% end %>
     <%= "<li>This user has no dreams to display. </li>" if dream_count == 0 %>
