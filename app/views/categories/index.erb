@@ -3,7 +3,7 @@
 
   <ul>
     <% Category.all.each do |category| %>
-      <li><a href="/categories/<%= category.id %>"><%= category.name %></a> - <%= category.dreams.uniq.count %> Dreams</li>
+      <li><a href="/categories/<%= category.id %>"><%= category.name %></a> - <%= category.dreams.select {|a| a.private == false}.count %> Dreams</li>
     <% end %>
   </ul>
 
