@@ -37,7 +37,7 @@
         <% dream_count += 1 %>
 
         <div class="card" id="dream_<%= dream.id %>">
-          <a href="/dreams/<%= dream.id %>"><div class="card-header clearfix"><span class="date"><%= dream.created_at.strftime("%A, %b %d, %Y, %l:%M%P %Z") %></span></div></a>
+          <a href="/dreams/<%= dream.id %>"><div class="card-header clearfix"><%= "<span class=\"badge badge-danger\">Private</span>" if dream.private %><span class="date"><%= dream.created_at.strftime("%A, %b %d, %Y, %l:%M%P %Z") %></span></div></a>
           <div class="card-body">
             <h5 class="card-title"><%= dream.title %></h5>
             <p class="card-text"><%= dream.content %></p>
