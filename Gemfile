@@ -4,7 +4,7 @@ source "https://rubygems.org"
 ruby '2.3.3'
 
 gem 'sinatra'
-gem 'sqlite3'
+gem 'sqlite3', :group => :development
 gem 'activerecord', :require => "active_record"
 gem 'rake'
 gem 'pry'
