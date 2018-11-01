@@ -5,7 +5,7 @@
       <div class="card-header">Dream shared by
         <a href="/users/<%= @dream.user.id %>"><%= @dream.user.username %></a>
         on
-        <%= @dream.created_at.strftime("%A, %b %d, %Y, at %l:%M%P %Z") %></div>
+        <%= @dream.created_at.strftime("%A, %b %d, %Y, at %l:%M%P %Z") %><%= "<span class=\"comments badge badge-danger\">Private</span>" if @dream.private %></div>
       <div class="card-body">
         <h5 class="card-title"><%= @dream.title %></h5>
         <p class="card-text dream-content"><%= @dream.content %>
