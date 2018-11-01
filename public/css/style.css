@@ -126,3 +126,7 @@ span.date {
 nav .white-text {
   font-size: 1.5em;
 }
+
+section#comment-section .card {
+  margin-bottom: 10px;
+}
