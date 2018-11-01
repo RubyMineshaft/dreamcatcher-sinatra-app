@@ -44,7 +44,7 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id
       redirect "/dreams"
     else
-      flash[:notice] = "There was a problem logging you in.  Please check email address and password."
+      flash[:error] = "There was a problem logging you in.  Please check email address and password."
       redirect "/login"
     end
   end

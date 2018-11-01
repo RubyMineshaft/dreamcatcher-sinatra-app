@@ -16,6 +16,13 @@ body {
   align-items: center;
 }
 
+.center-vertical-no-flex {
+  min-height: 100%;
+  min-height: 100vh;
+  display: inline;
+  align-items: center;
+}
+
 .main-area {
   margin-top: 20px;
 }
