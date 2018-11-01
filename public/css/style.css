@@ -102,7 +102,9 @@ span.comments {
 }
 
 form.delete-button {
-  float: left;
+    margin-left: 15px;
+    margin-top: -20px;
+    margin-bottom: 10px;
 }
 
 span#comment-date {
