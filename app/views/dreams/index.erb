@@ -1,4 +1,4 @@
-<div class="container">
+
   <% Dream.all.each do |dream| %>
     <% if !dream.private %>
       <div class="card" id="dream_<%= dream.id %>">
@@ -15,4 +15,3 @@
       </div>
     <% end %>
   <% end %>
-</div>
