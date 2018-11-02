@@ -1,5 +1,5 @@
-<div class="container bg-light text-dark">
-  <h1>Update your information</h1>
+<div class="container bg-light text-dark pad">
+  <h1>Update your information</h1><br>
 
   <% if @user.errors.any? %>
     <ul>
@@ -9,14 +9,28 @@
     </ul>
   <% end %>
 
-  <form action="/users/<%= @user.id %>" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <label for="username">Username</label><br>
-    <input type="text" name="user[username]" value="<%= @user.username %>"><br>
-    <label for="city">City</label><br>
-    <input type="text" name="user[city]" value="<%= @user.city %>"><br>
-    <label for="bio">Bio</label><br>
-    <input type="text" name="user[bio]" value="<%= @user.bio %>"><br>
-    <input type="submit" value="Save">
+  <form class="" action="/users/<%= @user.id %>" method="post">
+
+    <div class="form-group">
+      <input type="hidden" name="_method" value="patch">
+      <label for="username">Username</label><br>
+      <input type="text" name="user[username]" class="form-control" value="<%= @user.username %>"><br>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label><br>
+      <input type="text" class="form-control" name="user[city]" value="<%= @user.city %>"><br>
+    </div>
+
+    <div class="form-group">
+      <label for="bio">Bio</label><br>
+      <input type="text" class="form-control" name="user[bio]" value="<%= @user.bio %>"><br>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="/users/<%= @user.id %>" class="btn btn-secondary" role="button">Cancel</a>
+    </div>
+
   </form>
 </div>
