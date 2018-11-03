@@ -57,7 +57,7 @@
       </nav>
       <% end %>
 
-    <div class="container main-area">
+    <div class="container-fluid">
 
       <% if flash.has?(:error) %>
         <div class="row">
@@ -79,13 +79,15 @@
         </div>
       <% end %>
 
+      <div class="container main-area">
 
 
-      <%= yield %>
+        <%= yield %>
 
 
 
-  	</div> <!-- Container -->
+    	</div>
+    </div>
 
     <footer class="footer">
       <div class="container">
