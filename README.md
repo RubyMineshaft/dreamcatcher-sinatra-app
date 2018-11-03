@@ -12,6 +12,8 @@ Run `$ bundle install` to install dependencies.
 Migrate database with `$ rake db:migrate`.
 Optionally, seed database with `$ rake db:seed`.
 
+**Note:** If you get errors while doing any of the above you may need to run the following within your terminal: `$ export ENV SINATRA_ENV="development"`. This will set the SINATRA_ENV environment variable to development, which tells the app to use a sqlite database rather than postgresql.
+
 ## Usage
 
 To play around with the app start up a server by running `$ shotgun` from within the root directory and visit the address given by the server. The default shotgun server listens at localhost:9393
