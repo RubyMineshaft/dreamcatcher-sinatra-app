@@ -37,15 +37,19 @@
         <% dream_count += 1 %>
 
         <div class="card" id="dream_<%= dream.id %>">
-          <a href="/dreams/<%= dream.id %>"><div class="card-header clearfix"><%= "<span class=\"badge badge-danger\">Private</span>" if dream.private %><span class="date"><%= dream.created_at.strftime("%A, %b %d, %Y, %l:%M%P %Z") %></span></div></a>
-          <div class="card-body">
-            <h5 class="card-title"><%= dream.title %></h5>
-            <p class="card-text"><%= dream.content %></p>
-          </div>
-          <div class="card-footer text-muted">
-            <% cats = dream.categories.collect { |cat| "<a href=\"/categories/#{cat.id}\">#{cat.name}</a>" } %>
-            <span class="categories">Categories: <%= cats.join(", ") %></span><span class="comments"><a href="/dreams/<%= dream.id %>#comment-section"><%= dream.comments.count %> comments</span>
-          </div>
+          <a class="plain-links" href="/dreams/<%= dream.id %>">
+            <div class="card-header clearfix">
+              <%= "<span class=\"badge badge-danger\">Private</span>" if dream.private %><span class="date"><%= dream.created_at.strftime("%A, %b %d, %Y, %l:%M%P %Z") %></span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= dream.title %></h5>
+              <p class="card-text"><%= dream.content %></p>
+            </div>
+            <div class="card-footer text-muted">
+              <% cats = dream.categories.collect { |cat| "<a href=\"/categories/#{cat.id}\">#{cat.name}</a>" } %>
+              <span class="categories">Categories: <%= cats.join(", ") %></span><span class="comments"><a href="/dreams/<%= dream.id %>#comment-section"><%= dream.comments.count %> comments</span>
+            </div>
+          </a>
         </div>
 
       <% end %>
