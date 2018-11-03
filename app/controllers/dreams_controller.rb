@@ -51,6 +51,7 @@ class DreamsController < ApplicationController
   patch "/dreams/:id" do
     @dream = Dream.find_by_id(params[:id])
     @dream.update(params[:dream])
+    @dream.category_ids = params[:dream][:category_ids]
     @dream.save
 
     Category.create(params[:new_category]).dreams << @dream if !params[:new_category][:name].empty?
