@@ -28,7 +28,6 @@ class DreamsController < ApplicationController
     redirect "/dreams/#{dream.id}"
   end
 
-
   get "/dreams/:id" do
     @dream = Dream.find_by_id(params[:id])
     if logged_in? && !@dream.private || @dream.user == current_user
@@ -66,5 +65,4 @@ class DreamsController < ApplicationController
     flash[:success] = "Dream deleted."
     redirect "/dreams"
   end
-
 end

@@ -1,11 +1,8 @@
 <div class="container bg-light text-dark pad">
   <h1>Categories</h1>
-
   <ul>
     <% Category.all.each do |category| %>
       <li><a href="/categories/<%= category.id %>"><%= category.name %></a> - <%= category.dreams.select {|a| a.private == false}.count %> Dreams</li>
     <% end %>
   </ul>
-
-
 </div>

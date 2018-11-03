@@ -28,8 +28,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
-
   patch "/comments/:id" do
     @comment = Comment.find_by_id(params[:id])
     @comment.content = params[:comment][:content]
@@ -37,5 +35,4 @@ class CommentsController < ApplicationController
 
     redirect "/dreams/#{@comment.dream.id}"
   end
-
 end

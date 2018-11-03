@@ -16,5 +16,4 @@ class CategoriesController < ApplicationController
       redirect "/"
     end
   end
-
 end
