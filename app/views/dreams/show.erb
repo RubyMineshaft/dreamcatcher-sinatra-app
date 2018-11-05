@@ -49,7 +49,7 @@
         <% if @dream.comments.empty? %>
           <h6>No comments to display.</h6>
         <% else %>
-          <% @dream.comments.each do |comment| %>
+          <% @dream.comments.reverse.each do |comment| %>
             <div class="card">
               <div class="card-header">
                 <span><a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a></span>

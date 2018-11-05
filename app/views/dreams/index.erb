@@ -1,5 +1,5 @@
 
-  <% Dream.all.each do |dream| %>
+  <% Dream.all.reverse.each do |dream| %>
     <% if !dream.private %>
       <div class="card" id="dream_<%= dream.id %>">
         <a href="/users/<%= dream.user.id %>"><div class="card-header clearfix">Dream shared by <%= dream.user.username %> <span class="date"><%= dream.created_at.strftime("%A, %b %d, %Y, at %l:%M%P %Z") %></span></div></a>

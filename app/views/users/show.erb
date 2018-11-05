@@ -8,7 +8,7 @@
   <p><%= @user.bio %></p>
   <h5><%= @user.username %>'s Categories:</h5>
   <% categories = [] %>
-  <% @user.dreams.each do |dream| %>
+  <% @user.dreams.reverse.each do |dream| %>
     <% if !dream.private || dream.user == current_user %>
       <% categories << dream.categories %>
     <% end %>
@@ -32,7 +32,7 @@
 
 
     <% dream_count = 0 %>
-    <% @user.dreams.each do |dream| %>
+    <% @user.dreams.reverse.each do |dream| %>
       <% if !dream.private || dream.user == current_user %>
         <% dream_count += 1 %>
 
