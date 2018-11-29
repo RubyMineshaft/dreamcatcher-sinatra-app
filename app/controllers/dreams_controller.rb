@@ -50,13 +50,18 @@ class DreamsController < ApplicationController
 
   patch "/dreams/:id" do
     @dream = Dream.find_by_id(params[:id])
-    @dream.update(params[:dream])
-    @dream.category_ids = params[:dream][:category_ids]
-    @dream.save
+    if @dream.user == current_user
+      @dream.update(params[:dream])
+      @dream.category_ids = params[:dream][:category_ids]
+      @dream.save
 
-    Category.create(params[:new_category]).dreams << @dream if !params[:new_category][:name].empty?
-    flash[:success] = "Dream successfully updated."
-    redirect "/dreams/#{@dream.id}"
+      Category.create(params[:new_category]).dreams << @dream if !params[:new_category][:name].empty?
+      flash[:success] = "Dream successfully updated."
+      redirect "/dreams/#{@dream.id}"
+    else
+      flash[:error] = "Only the owner of a dream can edit it."
+      redirect "/dreams"
+    end 
   end
 
   delete "/dreams/:id" do
