@@ -61,14 +61,19 @@ class DreamsController < ApplicationController
     else
       flash[:error] = "Only the owner of a dream can edit it."
       redirect "/dreams"
-    end 
+    end
   end
 
   delete "/dreams/:id" do
     @dream = Dream.find_by_id(params[:id])
-    @dream.destroy
+    if @dream.user == current_user
+      @dream.destroy
 
-    flash[:success] = "Dream deleted."
-    redirect "/dreams"
+      flash[:success] = "Dream deleted."
+      redirect '/dreams'
+    else
+      flash[:error] = "A dream can only be deleted by its owner."
+      redirect "/dreams/#{@dream.id}"
+    end
   end
 end
