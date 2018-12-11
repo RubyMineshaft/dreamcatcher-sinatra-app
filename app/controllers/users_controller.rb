@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
   post "/login" do
     @user = User.find_by(email: params[:user][:email])
+    
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect "/dreams"
@@ -43,6 +44,7 @@ class UsersController < ApplicationController
 
   get "/users/:id" do
     @user = User.find_by(id: params[:id])
+
     if logged_in?
       erb :"users/show"
     else
@@ -52,6 +54,7 @@ class UsersController < ApplicationController
 
   get "/users/:id/edit" do
     @user = User.find_by(id: params[:id])
+
     if logged_in? && @user == current_user
       erb :"users/edit"
     else
@@ -64,6 +67,7 @@ class UsersController < ApplicationController
     @user.username = params[:user][:username]
     @user.city = params[:user][:city]
     @user.bio = params[:user][:bio]
+
     if @user.save
       flash[:success] = "Profile updated."
       redirect "/users/#{@user.id}"
