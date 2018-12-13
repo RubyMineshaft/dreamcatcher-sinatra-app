@@ -1,6 +1,6 @@
 # DreamCatcher Sinatra App
 
-DreamCatcher is a simple dream journal Sinatra app that allows users to create an account and log dreams. Dreams can be made private or shared publicly.  The app has minimal styling using [Twitter Bootstrap](http://getbootstrap.com).
+DreamCatcher is a simple dream journal Sinatra app that allows users to create an account and log dreams. Dreams can be made private or shared publicly.  The app has minimal styling with [Twitter Bootstrap](http://getbootstrap.com).
 
 A live demo of this app can be found at [dreamcatcher-sinatra.herokuapp.com](http://dreamcatcher-sinatra.herokuapp.com).
 
