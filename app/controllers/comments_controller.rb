@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
   post "/comments" do
     @comment = Comment.new(params[:comment])
     @comment.save
+    
     current_user.comments << @comment
     @comment.dream.comments << @comment
 
