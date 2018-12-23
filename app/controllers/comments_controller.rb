@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     comment = Comment.find_by_id(params[:id])
     dream = comment.dream
     comment.destroy
-    
     flash[:success] = "Your comment has been successfully deleted."
     redirect "/dreams/#{dream.id}"
   end
@@ -20,7 +19,6 @@ class CommentsController < ApplicationController
 
   get "/comments/:id/edit" do
     @comment = Comment.find_by_id(params[:id])
-
     if logged_in? && @comment.user == current_user
       erb :"comments/edit"
     else
