@@ -11,6 +11,7 @@ gem 'require_all'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem 'pg'
+gem "rack", ">= 2.0.6"
 
 group :development do
   gem 'shotgun'
